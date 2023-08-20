@@ -1,0 +1,66 @@
+:root{
+    --bulletLeft:var(--bulletLeft)
+}
+
+#score {text-align:center;}
+
+#game{
+    width: 600px;
+    height: 300px;
+    border: 2px solid black;
+    margin: auto;
+    background-image:url("./img/34d7a3bbe7ab056f213e66c7182dd57e.gif") ;
+    background-size: cover;
+}
+
+#shooter{
+    height: 75px;/*75+225=300*/
+    width: 75px;
+    top: 225px; /*the distance from top*/
+    position: relative;
+    background-image: url("./img/shooting.png");
+    background-size: cover;
+    /*animation: jump 0.5s infinite;*/
+}   
+
+.jump-animation{
+    animation:jump 0.5s;
+}
+
+@keyframes jump{
+    0%{top: 225px;}
+    50%{top: 100px;}
+    75%{top: 100px;}
+    100%{top: 225px;}
+}
+
+.shoot-animation{
+    
+    animation:bullet 1s;
+}
+
+#bullet{
+    width: 35px;
+    height:35px;
+    position: relative;
+    top:150px;
+    left:-300px;
+    background-image: url(./img/bullet.png);
+    background-size: cover;
+    /*animation:bullet 1s infinite;*/
+}
+
+@keyframes bullet{
+    0%{left:75px;}
+    100%{left:800px;}
+}
+
+#egg{
+    height: 70px;/*75+225=300*/
+    width: 70px;
+    top: 118px; /*the distance from top*/
+    left:520px;
+    position: relative;
+    background-image: url("./img/egg.png");
+    background-size: cover;
+}
