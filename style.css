@@ -1,5 +1,6 @@
 :root{
-    --bulletLeft:var(--bulletLeft)
+    --bulletLeft:300px;
+    --bulletEnd:800px;
 }
 
 #score {text-align:center;}
@@ -51,8 +52,8 @@
 }
 
 @keyframes bullet{
-    0%{left:75px;}
-    100%{left:800px;}
+    0%{left:var(--bulletLeft);}
+    100%{left:var(--bulletEnd);}
 }
 
 #egg{
