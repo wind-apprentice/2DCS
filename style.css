@@ -1,6 +1,7 @@
 :root{
     --bulletLeft:300px;
     --bulletEnd:800px;
+    --eggPicture:url("./img/egg.png");
 }
 
 #score {text-align:center;}
@@ -48,6 +49,7 @@
     left:-300px;
     background-image: url(./img/bullet.png);
     background-size: cover;
+    visibility: hidden;
     /*animation:bullet 1s infinite;*/
 }
 
@@ -62,6 +64,16 @@
     top: 118px; /*the distance from top*/
     left:520px;
     position: relative;
-    background-image: url("./img/egg.png");
+    background-image:url(./img/egg.png);
     background-size: cover;
+}
+
+.egg-animation{
+    
+    animation:egg 1s;
+}
+
+@keyframes egg{
+    0%{background-image:url(./img/egg.png);}
+    100%{background-image:url(./img/broke_egg.png);}
 }

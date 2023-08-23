@@ -5,6 +5,7 @@ const egg=document.getElementById("egg");
 var bulletTop;
 var shooterTop;
 var shooterLeft;
+var r=document.querySelector(':root');
 
 //shooter jump
 function jump() {
@@ -21,7 +22,6 @@ function remove_bullet(){
 
 function shoot(){
     bullet.style.visibility="visible";
-    var r=document.querySelector(':root');
     bullet.style.top=String(bulletTop)+"px";
     //bullet.style.left=String(shooterLeft+10)+"px";
     r.style.setProperty('--bulletLeft', String(shooterLeft)+"px");
@@ -31,6 +31,15 @@ function shoot(){
     remove_bullet(), 500);
     
 }
+
+function egg_break(){    
+    egg.classList.add("egg-animation");
+    setTimeout(() =>
+    egg.classList.remove("egg-animation"), 1200);
+
+    
+}
+
 
 
 setInterval(() => {
@@ -49,8 +58,9 @@ setInterval(() => {
         let eggTop=parseInt(window.getComputedStyle(egg).getPropertyValue("Top"));
         if(bulletLeft>eggLeft && bulletLeft<eggLeft+70 &&bulletTop>eggTop &&bulletTop<eggTop+70){
             //collision happens
-            window.alert("collided");
-            //egg.style.setProperty("background-image")="url('./img/broke_egg.png')";
+            //window.alert("collided");
+            egg_break();
+            
         }
     }
     
