@@ -2,6 +2,7 @@ const shooter=document.getElementById("shooter");
 const bullet=document.getElementById("bullet");
 const score=document.getElementById("score");
 const egg=document.getElementById("egg");
+const egg_bullet=document.getElementById("egg-bullet");
 var bulletTop;
 var shooterTop;
 var shooterLeft;
@@ -32,14 +33,52 @@ function shoot(){
     
 }
 
+//egg break
 function egg_break(){    
+    //window.alert("egg break");
+    if(egg.classList.contains("egg-jump")){
+        egg.classList.remove("egg-jump");
+    }
     egg.classList.add("egg-animation");
+    setTimeout(() =>{
+        egg.classList.remove("egg-animation");
+        score.innerHTML++;//egg break bonus
+    }, 2000);
+    
+}
+//egg jump and shoot
+function egg_jump() {
+    egg.classList.add("egg-jump");
     setTimeout(() =>
-    egg.classList.remove("egg-animation"), 1200);
+      egg.classList.remove("egg-jump"), 500);
+}
+//bullet shoot
+function remove_eggbullet(){
+    egg_bullet.classList.remove("egg-shoot-animation");
+    egg_bullet.style.visibility="hidden";
+}
 
+function egg_shoot(){
+    egg_bullet.style.visibility="visible";
+    //egg_bullet.style.top=String(eggTop)+"px";
+    //bullet.style.left=String(shooterLeft+10)+"px";
+    r.style.setProperty('--eggbulletLeft', String(eggLeft)+"px");
+    egg_bullet.style.position="relative";
+    egg_bullet.classList.add("egg-shoot-animation");
+    setTimeout(() =>
+    remove_eggbullet(), 500);
     
 }
 
+setInterval(() =>{
+    score.innerHTML++;
+    
+},500);
+
+setInterval(()=>{
+    if(!egg.classList.contains("egg-jump") && !egg.classList.contains("egg-animation"))egg_jump();
+
+},20)
 
 
 setInterval(() => {
@@ -84,6 +123,11 @@ document.addEventListener('keypress', (event) => {
     }
     else if(event.code=="KeyD"){
         shooter.style.left=String(shooterLeft+5)+"px";
+    }
+    else if(event.code=="KeyK" && !egg_bullet.classList.contains('egg-shoot-animation')){
+        /*!bullet.classList.contains('shoot-animation')*/
+        /*window.alert("shoot");*/
+        egg_shoot();
     }
 })
 

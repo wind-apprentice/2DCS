@@ -70,10 +70,39 @@
 
 .egg-animation{
     
-    animation:egg 1s;
+    animation:egg-break 2s;
 }
 
-@keyframes egg{
+@keyframes egg-break{
     0%{background-image:url(./img/egg.png);}
-    100%{background-image:url(./img/broke_egg.png);}
+    50%{background-image:url(./img/broke_egg.png);}
+    100%{background-image:url(./img/egg.png);}
+}
+
+.egg-jump{
+    animation:egg-jump 0.5s;
+}
+
+@keyframes egg-jump{
+    0%{top: 118px;}
+    50%{top: 38px;}
+    75%{top: 38px;}
+    100%{top: 118px;}
+}
+
+#egg-bullet{
+    width: 35px;
+    height:35px;
+    position: relative;
+    top:0px;
+    left:-300px;
+    background-image: url(./img/egg-bullet.png);
+    background-size: cover;
+    visibility: visible;
+    /*animation:bullet 1s infinite;*/
+}
+
+@keyframes egg-bullet{
+    0%{left:var(--eggbulletLeft);}
+    100%{left:var(--eggbulletEnd);}
 }
