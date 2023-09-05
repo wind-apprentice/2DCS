@@ -36,6 +36,13 @@ function left_move(){
 function right_move(){
     shooter.style.left=String(shooterLeft+5)+"px";
 }
+//egg function
+function egg_jump(){
+    egg.classList.add("jump-animation");
+    setTimeout(() => {
+        egg.classList.remove("jump-animation");
+    }, 500);
+}
 //bullet function
 function shoot(){
     //determine bullet position by shooter position
@@ -139,7 +146,9 @@ document.addEventListener('keypress',(event)=>{
         egg_shoot();
     }
     //egg
-
+    else if(event.code=="KeyI" && !egg.classList.contains('jump-animation')){
+        egg_jump();
+    }
     //other function
     else if(event.code=="KeyP"){
         parse_positions();
