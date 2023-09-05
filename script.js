@@ -57,7 +57,7 @@ function remove_eggbullet(){
     egg_bullet.classList.remove("egg-shoot-animation");
     egg_bullet.style.visibility="hidden";
 }
-
+ 
 function egg_shoot(){
     egg_bullet.style.visibility="visible";
     //egg_bullet.style.top=String(eggTop)+"px";

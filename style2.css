@@ -1,0 +1,175 @@
+/*parameters*/
+:root{
+    --bulletSpeed:0.5s;
+    --bullet_left_start:0px;
+    --bullet_left_end:0px;
+    --bullet_top_start:0px;
+    --bullet_top_end:0px;
+    --egg_left_start:0px;
+    --egg_left_end:0px;
+    --egg_top_start:0px;
+    --egg_top_end:0px;
+
+}
+
+/*all the objects*/
+
+#score {
+    text-align:center;
+    top: 300px;
+    left: 300px;
+    position: absolute;
+
+}
+
+#game{
+    width: 600px;
+    height: 300px;
+    border: 2px solid black;
+    margin: auto;
+    background-image:url("./img/34d7a3bbe7ab056f213e66c7182dd57e.gif") ;
+    background-size: cover;
+}
+
+#shooter{
+    height: 75px;/*75+225=300*/
+    width: 75px;
+    top: 235px; /*the distance from top*/
+    position: absolute;
+    background-image: url("./img/shooting.png");
+    background-size: cover;
+    /*animation: jump 0.5s infinite;*/
+}   
+
+#bullet{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    top:235px;
+    left:100px;
+    background-image: url(./img/bullet.png);
+    background-size: cover;
+    visibility: hidden;
+    /*animation:bullet 1s infinite;*/
+}
+
+#egg{
+    height: 75px;/*75+225=300*/
+    width: 75px;
+    top: 235px; /*the distance from top*/
+    left:520px;
+    position: absolute;
+    background-image:url(./img/egg.png);
+    background-size: cover;
+}
+
+#egg-bullet{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    top:235px;
+    left:400px;
+    background-image: url(./img/egg-bullet.png);
+    background-size: cover;
+    visibility: hidden;
+    /*animation:bullet 1s infinite;*/
+}
+
+#heart1{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    top:325px;
+    left:400px;
+    background-image: url(./img/heart.png);
+    background-size: cover;
+    visibility: visible;
+    /*animation:bullet 1s infinite;*/
+}
+
+#heart2{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    top:325px;
+    left:440px;
+    background-image: url(./img/heart.png);
+    background-size: cover;
+    visibility: visible;
+    /*animation:bullet 1s infinite;*/
+}
+
+#heart3{
+    width: 35px;
+    height:35px;
+    position: absolute;
+    top:325px;
+    left:480px;
+    background-image: url(./img/heart.png);
+    background-size: cover;
+    visibility: visible;
+    /*animation:bullet 1s infinite;*/
+}
+
+
+
+/*****all the animation and class*****/
+
+/*move&jump&shoot animation for shooter*/
+
+.jump-animation{
+    animation:jump 0.5s;
+}
+
+@keyframes jump{
+    0%{top: 235px;}
+    50%{top: 100px;}
+    75%{top: 100px;}
+    100%{top: 235px;}
+}
+
+/*shoot animation for bullet and egg-bullet*/
+.shoot-animation{
+    animation: shoot var(--bulletSpeed);
+    /*visibility: visible;*/
+}
+
+@keyframes shoot{
+    0%{
+        left: var(--bullet_left_start);
+        top: var(--bullet_top_start);
+        visibility: visible;
+    }
+    100%{
+        left: var(--bullet_left_end);
+        top:var(--bullet_top_end);
+        visibility: hidden;
+    }
+}
+
+.egg-shoot-animation{
+    animation:egg-shoot var(--bulletSpeed);
+}
+@keyframes egg-shoot{
+    0%{
+        left: var(--egg_left_start);
+        top: var(--egg_top_start);
+        visibility: visible;
+    }
+    100%{
+        left: var(--egg_left_end);
+        top:var(--egg_top_end);
+        visibility: hidden;
+    }
+}
+
+/*egg break animation*/
+.egg-break{
+    animation:break 1s;
+}
+@keyframes break{
+    0%{background-image: url(./img/egg.png);}
+    50%{background-image: url(./img/broke_egg.png);}
+    100%{background-image: url(./img/egg.png);}
+
+}
